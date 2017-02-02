@@ -32,6 +32,9 @@ angular.module('agilityDockerManagerApp')
                 $scope.volumes = r.data.Volumes;
             });
 
+            /**
+             * Load the UI's
+             */
             $scope.loadData = function() {
                 /**
                  * Get the Services
@@ -107,9 +110,7 @@ angular.module('agilityDockerManagerApp')
             $scope.loadNodes = function() {
 
                 var nodes = dockerapiservice.getNodes($scope.apiurl).then(function(r) {
-
                     $scope.nodes = [];
-
                     angular.forEach(r.data, function(v, k) {
 
                         var node = new Object();
@@ -147,12 +148,10 @@ angular.module('agilityDockerManagerApp')
                 });
             }
 
-
             //Load the data
             $scope.loadData();
 
             $scope.getStateClass = function(status) {
-
                 if (status === 'running') {
                     return 'label-success';
                 } else if (status === 'failed') {

@@ -4,7 +4,7 @@ var routes = require('routes');
 var bodyParser = require('body-parser');
 
 //Server static content
-server.use('/', express.static(__dirname + '/app'));
+server.use('/', express.static(__dirname + '/'));
 
 //server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json())
@@ -19,7 +19,7 @@ var restClient = new Client();
 const insecure = require('insecure');
 
 /**
- * API's
+ * Wrapper API's
  */
 
 var tcpp = require('tcp-ping');
