@@ -1,0 +1,20 @@
+ <h3>volumes</h3>
+
+ <div class="row">
+    <div ng-repeat="v in volumes">
+        <div class="col-md-4">
+            <div class="panel panel-default panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{v.Name}}</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">Driver : {{v.Driver}}</li>
+                        <li class="list-group-item">Mountpoint : <small> {{v.Mountpoint}} </small></li>
+                        <li class="list-group-item">Scope : {{v.Scope}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<section>
+    <div class="row">
+        <md-progress-linear ng-show='loading' md-mode="indeterminate "></md-progress-linear>
+        <div ng-show="isValidURL=='false'" class="alert alert-danger">Error connecting to specified swarm leader host and port</div>
+        <div ng-show="hasError" class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> {{errorMessage}}
+        </div>
+        <div ng-show="hasMessage" class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> {{message}}
+        </div>
+        <div class="well md-margin">
+            <div class="row">
+                <div class="col-md-3">
+                    <a ng-href="{{nginxURL}}" target="_blank">Agility URL</a>
+                </div>
+                <div class="col-md-3">
+                    Agility platform status
+                    <span class="label label-success">{{agilitystatus}}</span>
+                    <button type="button" class="btn btn-default btn-xs" ng-click="getAgilityStatus()">refresh</button>
+                </div>
+            </div>
+        </div>
+
+        <div ng-repeat="service in services">
+            <div class="col-md-3 col-sm-4 col-xs-1">
+                <div class="panel panel-default panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{service.name}}</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <ul class="list-group">
+                            <li class="list-group-item">Network : {{service.network}}</li>
+                            <li class="list-group-item">Replicas :<span class="badge ">{{service.replicas}}</span> </li>
+                            <li class="list-group-item">Image : <small> {{service.image}}</small></li>
+                        </ul>
+
+                    </div>
+                    <div class="panel-footer">
+                        <button type="button" class="btn btn-xs btn-primary" ng-click="showServiceDetails(service.rawData)" data-toggle="modal" data-target=".bs-example-modal-lg">details</button>
+                        <button type="button" class="btn btn-xs btn-info" ng-click="showServiceDetails(service.rawData)" data-toggle="modal" data-target=".bs-scale-modal-lg">scale</button>
+                        <button type="button" class="btn btn-xs btn-success" ng-click="showServiceDetails(service.rawData)" data-toggle="modal" data-target=".bs-image-modal-lg">update image</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-include="'/views/servicedetails.html'"></div>
+        <div ng-include="'/views/scale.html'"></div>
+        <div ng-include="'/views/update-image.html'"></div>
+    </div>
+</section>

@@ -1,0 +1,37 @@
+<div class="modal fade bs-image-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-large" role="document">
+        <div class="modal-content padding">
+            <div class="container-fluid">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Update image</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="exampleInputName2">url</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="image_url" placeholder="busybox" ng-model='currentImage'>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail2">tag</label>
+                                <div class="col-sm-3">
+                                    <input type="email" class="form-control" id="tag" placeholder="latest" ng-model='currentTag'>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-default" ng-click="updateImage()">Update service</button>
+                        </form>
+
+                        <textarea ng-show="imagelog" class="form-control col-xs-12" rows="7">{{imagelog}}</textarea>
+
+                    </div>
+                </div>
+            </div>
+            <!-- scale or descale the nodes -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
